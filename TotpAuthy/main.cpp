@@ -6,8 +6,8 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    a.setWindowIcon(QIcon(":/icons/icons/icon.ico"));
     TotpAuthy w;
-    qDebug() << "Local time: " << QDateTime::currentDateTimeUtc();
     w.show();
     return a.exec();
 }

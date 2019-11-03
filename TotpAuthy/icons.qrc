@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icons/google.png</file>
+        <file>icons/plus.png</file>
+        <file>icons/refresh.png</file>
+        <file>icons/icon.ico</file>
+    </qresource>
+</RCC>
