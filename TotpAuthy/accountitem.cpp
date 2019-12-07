@@ -22,6 +22,5 @@ QLabel *AccountItem::getAccountTotpKeyLabel()
 void AccountItem::on_refreshTOTPKeyPushButton_clicked()
 {
     ui->accountTOTPKeyLabel->clear();
-    ui->accountTOTPKeyLabel->setText(QGoogleAuth::generatePin(totpAuthyParentWidget->secretKey.toUtf8()));
-//    QGoogleAuth::generatePin(totpParentWidget->getSecretKey().toUtf8())
+    ui->accountTOTPKeyLabel->setText(QGoogleAuth::generatePin(totpAuthyParentWidget->secretKeys[this].toUtf8()));
 }

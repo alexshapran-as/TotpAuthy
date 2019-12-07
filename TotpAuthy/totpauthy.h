@@ -2,12 +2,15 @@
 #define TOTPAUTHY_H
 
 #include <QMainWindow>
+#include <QMap>
 #include "secretkeyform.h"
 #include "accountitem.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class TotpAuthy; }
 QT_END_NAMESPACE
+
+class AccountItem;
 
 class TotpAuthy : public QMainWindow
 {
@@ -17,13 +20,12 @@ public:
     TotpAuthy(QWidget *parent = nullptr);
     ~TotpAuthy();
     void setSecretKey(QString key);
-    void refreshAccounts();
 
 private slots:
     void on_generateTotpCodePushButton_clicked();
 
 public:
-    QString secretKey;
+    QMap<AccountItem *, QString> secretKeys;
 
 private:
     Ui::TotpAuthy *ui;

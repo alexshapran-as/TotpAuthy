@@ -16,13 +16,9 @@ TotpAuthy::~TotpAuthy()
 
 void TotpAuthy::setSecretKey(QString key)
 {
-    this->secretKey = key;
-}
-
-void TotpAuthy::refreshAccounts()
-{
     AccountItem * accountItem = new AccountItem(this);
-    accountItem->getAccountTotpKeyLabel()->setText(QGoogleAuth::generatePin(secretKey.toUtf8()));
+    this->secretKeys.insert(accountItem, key);
+    accountItem->getAccountTotpKeyLabel()->setText(QGoogleAuth::generatePin(key.toUtf8()));
     QListWidgetItem * item = new QListWidgetItem(ui->listWidget);
     item->setSizeHint(accountItem->sizeHint());
     ui->listWidget->setItemWidget(item, accountItem);

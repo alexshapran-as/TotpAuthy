@@ -17,7 +17,6 @@ void SecretKeyForm::on_pushButton_clicked()
 {
     totpAuthyParentWidget->setSecretKey(ui->secretKeyLineEdit->text());
     this->hide();
-    totpAuthyParentWidget->refreshAccounts();
     totpAuthyParentWidget->show();
 }
 
