@@ -1,5 +1,6 @@
 QT       += core gui
 QT       += network
+QT       += androidextras
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -23,6 +24,7 @@ SOURCES += \
     hmac.cpp \
     main.cpp \
     qgoogleauth.cpp \
+    qrdecoder.cpp \
     secretkeyform.cpp \
     totpauthy.cpp
 
@@ -32,6 +34,7 @@ HEADERS += \
     hmac.h \
     qgoogleauth.h \
     qgoogleauth_global.h \
+    qrdecoder.h \
     secretkeyform.h \
     totpauthy.h
 
@@ -49,6 +52,43 @@ RESOURCES += \
     icons.qrc
 
 DISTFILES += \
-    android-sources/AndroidManifest.xml
+    android-sources/AndroidManifest.xml \
+    android-sources/libopencv_java.so \
+    android-sources/src/com/mycompany/myappname/totpauthy.java \
+    android-sources/src/com/mycompany/totpauthy/TotpAuthy.java \
+    android-sourceslibsarmeabi-v7a/libopencv_java.so
+
+INCLUDEPATH += "$$_PRO_FILE_PWD_/OpenCV-2.4.10-android-sdk/sdk/native/jni/include"
+android {
+    LIBS += \
+        -L"$$_PRO_FILE_PWD_/OpenCV-2.4.10-android-sdk/sdk/native/3rdparty/libs/armeabi-v7a"\
+        -L"$$_PRO_FILE_PWD_/OpenCV-2.4.10-android-sdk/sdk/native/libs/armeabi-v7a"\
+        -llibtiff\
+        -llibjpeg\
+        -llibjasper\
+        -llibpng\
+        -lIlmImf\
+        -ltbb\
+        -lopencv_core\
+        -lopencv_androidcamera\
+        -lopencv_flann\
+        -lopencv_imgproc\
+        -lopencv_highgui\
+        -lopencv_features2d\
+        -lopencv_calib3d\
+        -lopencv_ml\
+        -lopencv_objdetect\
+        -lopencv_video\
+        -lopencv_contrib\
+        -lopencv_photo\
+        -lopencv_java\
+        -lopencv_legacy\
+        -lopencv_ocl\
+        -lopencv_stitching\
+        -lopencv_superres\
+        -lopencv_ts\
+        -lopencv_videostab
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android-sources
+}
+

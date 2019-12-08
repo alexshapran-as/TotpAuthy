@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "totpauthy.h"
+#include "qrdecoder.h"
 
 class TotpAuthy;
 

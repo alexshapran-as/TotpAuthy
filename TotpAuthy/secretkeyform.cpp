@@ -6,6 +6,8 @@ SecretKeyForm::SecretKeyForm(TotpAuthy *totpAuthyParent) :
     ui(new Ui::SecretKeyForm)
 {
     ui->setupUi(this);
+    QrDecoder * qrDecoder = new QrDecoder;
+    ui->secretKeyLineEdit->setText(qrDecoder->takePictureAndDecode());
 }
 
 SecretKeyForm::~SecretKeyForm()
